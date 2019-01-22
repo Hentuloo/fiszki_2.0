@@ -1,0 +1,272 @@
+body {
+    background-color: #23242e;
+    color: white;
+    margin: 0px;
+    font-family: monospace;
+    font-size: 5vw;
+}
+/*Select words in fiszki.php*/
+.select,.select div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.select div{
+    flex-basis: 20%;
+    min-height: 100px;
+    flex-grow: 1;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    margin: 10vw 0px;
+    cursor: pointer;
+    align-content: center;
+    justify-content: center;
+}
+.select div:nth-child(3n){
+    flex-basis: 100%;
+}
+.select i {
+    width: 24vw;
+    height: 24vw;
+    background-color: #4c7689;
+    color: white;
+    position: relative;
+    display: block;
+    border-radius: 50%;
+    
+}
+.select span {
+    width: 90%;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%,100%);
+}
+.select div.active{
+    background-color: #26414d;
+     border: 3px #a2bdbe solid;
+}
+/*list words in fiszki.php*/
+.lista_section.active{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(21, 28, 31, 0.5);
+    transition: all 1s ease-in-out;
+}
+.lista_section.active::after{
+    content: '';
+    position: fixed;
+    right: 20%;
+    bottom: 2%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    opacity: 0;
+    background-color: white;
+    animation: close_list 1s 1.3s linear 1 forwards;
+}
+.lista{
+    width: 90%;
+    max-height: 70%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: #294c65;
+    position:fixed;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.6s ease-in-out;
+     border: 7px solid #0d2f48;
+}
+.lista div:last-of-type{
+    display: none;/*for mobile*/
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    top: 0%;
+    right: 0%;
+    color: black;
+    font-size: 8vw;
+    transform: translate(0%,0%) rotate(45deg);
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+.lista.active{
+    top: 50%;
+}
+.lista div{
+    width: 100%;
+    text-align: center;
+}
+.lista div span{
+    display: block;
+    width: 50%;
+    float: left;
+    border: 1px white solid;
+    padding: 5px;
+    box-sizing: border-box;
+}
+/*form in index.php*/
+.form{
+    width: 94%;
+    position: absolute;
+    background-color: #35525f;
+    transform: translate(-50%,-50%);
+    font-size: 6.6vw;
+    left: 50%;
+    top: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 4px solid #438bac;
+}
+.form.restriction{
+    top: 0%;
+     transform: translate(-50%,0%);
+}
+.form h1{
+    font-size: 5vw;
+    text-align: center;
+    background-color: #224352;
+    padding: 2vw;
+    border-radius: 10px;
+}
+.form fieldset{
+    padding: 20px;
+}
+.form input[type='text'],.form input[type='password'],.form input[type='email']{
+    width: 60vw;
+    height: 7vw;
+    font-size: 5vw;
+}
+
+.form input[type='submit']{
+    display: block;
+    height: 13vw;
+    
+    background-color: #0094af;
+    color: white;
+    font-size: 5vw;
+    margin: 40px auto;
+    border: 2px solid #074c6a;
+     border-radius: 10px;
+    cursor: pointer;
+}
+.form .g-recaptcha{
+  position:relative;
+    left: calc(50% - 20px - 4px);
+    transform: translateX(-50%);
+}
+.form .error_form{
+    font-size: 4.5vw;
+    color: #98d5e3;
+}
+.form label{
+    display: block;
+    margin: 20px 0px;
+}
+.form label input{
+    width: 6vw;
+    height: 6vw;
+}
+
+@media only screen and (min-width: 800px) {
+    body {
+        font-size: 3vw;
+    }
+    .form{
+        font-size: 2.2vw;
+        width: 80%;
+        margin: 7vh auto;
+    }
+    .form h1{
+        font-size: 3vw;
+    }
+    .form .error_form{
+    font-size: 1.9vw;
+    color: #98d5e3;
+}
+    .form input[type='text'],.form input[type='password'],.form input[type='email']{
+    width: 40vw;
+    height: 3vw;
+    font-size: 2.3vw;
+}
+    .form label input{
+    width: 2vw;
+    height: 2vw;
+}
+    .form input[type='submit']{
+        font-size: 2.7vw;
+         height: 8vw;
+    }
+    .select div{
+        margin: 3vw 0px;
+    }
+    .lista div:last-of-type{
+        display: block;
+    }
+    .lista_section.active::after{
+        display: none;
+    }
+    .select i {
+    width: 12vw;
+    height: 12vw;
+    }
+}
+@media only screen and (min-width: 1300px) {
+        body {
+        font-size: 1.6vw;
+    }
+    .form{
+        font-size: 1.7vw;
+        width: 60%;
+    }
+    .form h1{
+        font-size: 2vw;
+    }
+    .form .error_form{
+    font-size: 1.4vw;
+    color: #98d5e3;
+}
+    .form input[type='text'],.form input[type='password'],.form input[type='email']{
+    width: 30vw;
+    height: 2vw;
+    font-size: 2.0vw;
+}
+    .form label input{
+    width: 1vw;
+    height: 1vw;
+}
+    .form input[type='submit']{
+        font-size: 2.2vw;
+         height: 6vw;
+    }
+    .select div{
+        margin: 2.4vw 0px;
+    }
+     .select i {
+    width: 6vw;
+    height: 6vw;
+    }
+    .select div:nth-child(3n){
+    flex-basis: 20%;
+}
+}
+@keyframes close_list{
+    0%{
+        right: 20%;
+        opacity: 0;
+    }
+    20%{
+        right: 20%;
+        opacity: 1;
+    }
+    100%{
+        right: 80%;
+        opacity: 0;
+    }
+}
